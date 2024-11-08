@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/logo (1).png" type="image/icon type">
+
+    <title>yummy</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Cedarville+Cursive&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body class="bg-black">
+
+
+     <div id="loading" class=" flex justify-center items-center inset-0 w-[100%] h-[100vh] bg-[rgba(0,0,0,.02)]  z-[1000000] hidden ">
+        <span class=" loader"></span>
+     </div>
+    <!-- /////////start sideBar///////////////////// -->
+    <aside class="fixed z-[99999]">
+      <div class="coverSidebar w-[20%] fixed h-[100%]">
+        <div class="sidebar bg-black w-[15%] fixed h-[100%] text-white p-10">
+          <ul class="tracking-2 cursor-pointer">
+            <li id="searchbtn">search</li>
+            <br />
+            <li id="categorybtn">category</li>
+            <br />
+
+            <li id="areabtn">area</li>
+            <br />
+
+            <li id="ingrediantsbtn">ingrediants</li>
+            <br />
+
+            <li id="countentUsbtn">countent Us</li>
+          </ul>
+          <div class="icons absolute text-white bottom-14 pb-6">
+            <a href=""><i class="fa-solid fa-globe p-2"></i></a>
+            <a href=""> <i class="fa-brands fa-twitter p-2"></i> </a>
+            <a href=""> <i class="fa-brands fa-facebook p-2"></i> </a>
+          </div>
+          <p class="absolute bottom-0 pb-6">
+            Copyright Â© 2019 All Rights Reserved.
+          </p>
+        </div>
+        <div class="iconsidebar bg-white p-2 w-[5%] fixed left-[15%] h-[100%]">
+          <div id="whiteBar" class="text-[30px] h-[100%] p-6">
+            <div class="size-[50px]">
+              <img src="./images/logo (1).png" alt="" />
+            </div>
+            <div id="closeicon" class="font-bold flex justify-center">
+              <i class="fa-solid cursor-pointer fa-xmark h"></i>
+            </div>
+            <div id="menueicon" class="font-bold flex justify-center hidden ">
+              <i class="fa-solid fa-list"></i>
+            </div>
+            <div class="flex-col">
+              <a href=""><i class="fa-solid fa-globe"></i></a>
+              <a href=""> <i class="fa-solid fa-share-nodes"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- /////////end sideBar///////////////////// -->
+
+    <main>
+      <!-- /////////start search///////////////////// -->
+
+      <section id="search" class="hidden">
+        <div class="search grid-cols-2 pt-10 w-[80%] m-auto flex flex-wrap">
+          <div class="coverserach w-[50%] p-3 rounded-md container">
+            <input
+              type="text"
+              class="peer p-3 text-white block min-h-[auto] w-full rounded border-2 bg-transparent leading-[1.6] border-white placeholder:opacity-100"
+              id="searchName"
+              oninput="searchbyname(input.val())"
+              placeholder="search By Name "
+            />
+          </div>
+          <div class="coverserach w-[50%] p-3 rounded-md container">
+            <input
+              type="text"
+              class="peer p-3 text-white block min-h-[auto] w-full rounded border-2 bg-transparent leading-[1.6] border-white placeholder:opacity-100"
+              id="searchLitter"
+              oninput="searchbylitter(input2.val())"
+              placeholder="search By First letter "
+            />
+          </div>
+        </div>
+
+        <!-- ///////////////////////////// start details simi search///////////////////////////////// -->
+
+        <div
+          id="simidetailsearch"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap"
+        >
+          <!--  <div class="coverCard w-[25%] p-3 rounded-md container">
+            <div class="layerCard relative group/parent overflow-hidden">
+              <img
+                class="imgCard w-full relative rounded-md"
+                src="./images/beef.png"
+                alt=""
+              />
+              <div
+                class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] top-[120%] left-0 right-0 bottom-0 bg-[rgba(240,240,240,0.7)] text-center flex justify-center items-center"
+              >
+                <div class="contentCard">
+                  <h3 class="text-[40px]">sushi</h3>
+                  <p class="text-[10px]">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Atque, commodi?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>  -->
+        </div>
+        <!-- ///////////////////////////// end details simi search///////////////////////////////// -->
+        <!-- ///////////////////////////// start details  search///////////////////////////////// -->
+        <div
+          id="detailsearch"
+          class="detals w-[80%] pt-10 grid-cols-2 m-auto flex justify-center items-start hidden"
+        >
+          <!--     <div class="partition1 w-[30%] rounded-md ">
+           <img
+             src="../src/images/g046bb1663960946.jpg"
+             class="w-[100%]"
+             alt=""
+           />
+           <h4 class="text-white pt-3 text-[50px]">sushi</h4>
+         </div>
+         <div class="partition1 text-white w-[70%] mb-5 p-4">
+           <h3 class="text-[70px]">Instructions</h3>
+           <p class=" mb-5 pb-4">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+             quidem eum incidunt necessitatibus delectus, aliquid est ratione
+             labore, molestias sunt odio rem doloribus. Officia repellendus,
+             mollitia unde maiores modi molestias cum inventore in ab enim
+             magni veritatis deserunt fugiat atque commodi est ipsum ipsa
+             blanditiis voluptates fugit iste, esse aut? Sunt obcaecati quae
+             velit sed, a laudantium delectus asperiores temporibus quos magni
+             libero quasi vitae unde dolorum? Eos optio accusantium pariatur
+             labore id tenetur inventore necessitatibus modi, iste natus
+             molestias quaerat? Consectetur enim, adipisci deserunt nam dicta
+             maiores laudantium? Aut nemo ratione, doloremque nihil quia
+             cupiditate odit iste molestias, facilis minus accusantium
+             quibusdam sapiente? Explicabo assumenda sunt voluptates officia
+             ipsa voluptate et numquam nam sapiente autem, eius rerum quidem,
+             adipisci nisi, dicta fuga quis impedit. Corporis recusandae unde,
+             quas modi atque quidem iure consequuntur sit quo esse eveniet a
+             quibusdam velit delectus totam id rerum laudantium quam ab
+             veritatis aut! Deserunt porro excepturi obcaecati consequatur
+             nostrum asperiores voluptate maxime cumque, laboriosam ea minus
+             perferendis! Aperiam at rerum explicabo consequuntur maiores
+             officia. Veniam nesciunt provident quidem omnis tempora ab
+             praesentium enim nisi error obcaecati architecto incidunt possimus
+             excepturi odit natus nemo, animi, itaque a veritatis earum maiores
+             recusandae. Sunt quidem porro modi, doloribus culpa beatae
+             adipisci iste unde hic amet dolore excepturi reiciendis officiis
+             eaque. Illum, explicabo quos. Aliquam non doloremque iusto illum
+             ad debitis consequuntur perferendis quidem! Corrupti iusto
+             asperiores rem ex, adipisci error id ut repellat nemo saepe eius
+             nostrum, consectetur perspiciatis suscipit voluptates architecto
+             vero quia ad ullam amet, iure praesentium! Sequi deserunt officia
+             rem qui aspernatur alias ad ipsam harum, assumenda incidunt
+             exercitationem quis! Qui accusantium architecto debitis nulla
+             rerum, eligendi illum nihil sit consectetur placeat tenetur
+             inventore, facilis mollitia ratione iste voluptate saepe dolorem
+             id. Ex numquam possimus quisquam sed dolor quibusdam maxime in
+             magni necessitatibus?
+           </p>
+
+           <div class="cat 
+           ">
+             <h5 class="text-[30px] tracking-[2px]">
+               Area:<span>Japanese</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">
+               Category :<span>Seafood</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">Recipes :<span></span></h5>
+             <br />
+             <div class="recibes p-3 flex-wrap justify-evenly pt-2">
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <br />
+               <br />
+               <br />
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <br />
+               <h6 class="text-[30px] pt-1">tags:</h6>
+               <div class="bt flex pt-2">
+                   <a href="" class="bg-red-600 rounded-xl p-5 m-2"> source</a>
+                   <a href="" class="bg-green-500 rounded-xl p-5 m-2"> youtube</a>
+               </div>
+             </div>
+           </div>
+         </div>  -->
+        </div>
+        <!-- ///////////////////////////// end details  search///////////////////////////////// -->
+      </section>
+      <!-- /////////end search///////////////////// -->
+
+      <!-- /////////start home///////////////////// -->
+
+      <section>
+        <div id="Home" class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap">
+          <!--    <div class="coverCard w-[25%] p-3 rounded-md container">
+            <div class="layerCard relative group/parent overflow-hidden">
+              <img
+                class="imgCard w-full relative rounded-md"
+                src="./images/g046bb1663960946.jpg"
+                alt=""
+              />
+              <div
+                class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] position: absolute; top-[120%] left-0 right-0 bottom-0 bg-[rgba(169,169,169,0.7)] text-center flex items-center"
+              >
+                <h3 class="text-[40px]">sushi</h3>
+              </div>
+            </div>
+          </div>  -->
+        </div>
+
+        <!-- ///////////////////////details/////////////////////////// -->
+
+        <div
+          id="detalsHome"
+          class="detals w-[80%] pt-10 grid-cols-2 m-auto flex justify-center items-start hidden"
+        >
+          <!--    <div class="partition1 w-[30%] rounded-md ">
+            <img
+              src="../src/images/g046bb1663960946.jpg"
+              class="w-[100%]"
+              alt=""
+            />
+            <h4 class="text-white pt-3 text-[50px]">sushi</h4>
+          </div>
+          <div class="partition1 text-white w-[70%] mb-5 p-4">
+            <h3 class="text-[70px]">Instructions</h3>
+            <p class=" mb-5 pb-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              quidem eum incidunt necessitatibus delectus, aliquid est ratione
+              labore, molestias sunt odio rem doloribus. Officia repellendus,
+              mollitia unde maiores modi molestias cum inventore in ab enim
+              magni veritatis deserunt fugiat atque commodi est ipsum ipsa
+              blanditiis voluptates fugit iste, esse aut? Sunt obcaecati quae
+              velit sed, a laudantium delectus asperiores temporibus quos magni
+              libero quasi vitae unde dolorum? Eos optio accusantium pariatur
+              labore id tenetur inventore necessitatibus modi, iste natus
+              molestias quaerat? Consectetur enim, adipisci deserunt nam dicta
+              maiores laudantium? Aut nemo ratione, doloremque nihil quia
+              cupiditate odit iste molestias, facilis minus accusantium
+              quibusdam sapiente? Explicabo assumenda sunt voluptates officia
+              ipsa voluptate et numquam nam sapiente autem, eius rerum quidem,
+              adipisci nisi, dicta fuga quis impedit. Corporis recusandae unde,
+              quas modi atque quidem iure consequuntur sit quo esse eveniet a
+              quibusdam velit delectus totam id rerum laudantium quam ab
+              veritatis aut! Deserunt porro excepturi obcaecati consequatur
+              nostrum asperiores voluptate maxime cumque, laboriosam ea minus
+              perferendis! Aperiam at rerum explicabo consequuntur maiores
+              officia. Veniam nesciunt provident quidem omnis tempora ab
+              praesentium enim nisi error obcaecati architecto incidunt possimus
+              excepturi odit natus nemo, animi, itaque a veritatis earum maiores
+              recusandae. Sunt quidem porro modi, doloribus culpa beatae
+              adipisci iste unde hic amet dolore excepturi reiciendis officiis
+              eaque. Illum, explicabo quos. Aliquam non doloremque iusto illum
+              ad debitis consequuntur perferendis quidem! Corrupti iusto
+              asperiores rem ex, adipisci error id ut repellat nemo saepe eius
+              nostrum, consectetur perspiciatis suscipit voluptates architecto
+              vero quia ad ullam amet, iure praesentium! Sequi deserunt officia
+              rem qui aspernatur alias ad ipsam harum, assumenda incidunt
+              exercitationem quis! Qui accusantium architecto debitis nulla
+              rerum, eligendi illum nihil sit consectetur placeat tenetur
+              inventore, facilis mollitia ratione iste voluptate saepe dolorem
+              id. Ex numquam possimus quisquam sed dolor quibusdam maxime in
+              magni necessitatibus?
+            </p>
+
+            <div class="cat 
+            ">
+              <h5 class="text-[30px] tracking-[2px]">
+                Area:<span>Japanese</span>
+              </h5>
+              <h5 class="text-[30px] tracking-[2px]">
+                Category :<span>Seafood</span>
+              </h5>
+              <h5 class="text-[30px] tracking-[2px]">Recipes :<span></span></h5>
+              <br />
+              <div class="recibes p-3 flex-wrap justify-evenly pt-2">
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+                <br />
+                <br />
+                <br />
+
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+
+                <span class="bg-slate-400 p-3 rounded-xl m-2">
+                  300ml Sushi Rice
+                </span>
+
+                <br />
+                <h6 class="text-[30px] pt-1">tags:</h6>
+                <div class="bt flex pt-2">
+                    <a href="" class="bg-red-600 rounded-xl p-5 m-2"> source</a>
+                    <a href="" class="bg-green-500 rounded-xl p-5 m-2"> youtube</a>
+                </div>
+              </div>
+            </div>
+          </div>  -->
+        </div>
+      </section>
+      <!-- /////////end home///////////////////// -->
+
+      <!-- /////////start category///////////////////// -->
+      <section>
+        <div
+          id="category"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--   <div class="coverCard w-[25%] p-3 rounded-md container">
+            <div class="layerCard relative group/parent overflow-hidden">
+              <img
+                class="imgCard w-full relative rounded-md"
+                src="./images/beef.png"
+                alt=""
+              />
+              <div
+                class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] top-[120%] left-0 right-0 bottom-0 bg-[rgba(240,240,240,0.7)] text-center flex justify-center items-center"
+              >
+                <div class="contentCard">
+                  <h3 class="text-[40px]">sushi</h3>
+                  <p class="text-[10px]">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Atque, commodi?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- ///////////////////////////// start details simi category///////////////////////////////// -->
+        <div
+          id="simidetailscategory"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--  <div class="coverCard w-[25%] p-3 rounded-md container">
+            <div class="layerCard relative group/parent overflow-hidden">
+              <img
+                class="imgCard w-full relative rounded-md"
+                src="./images/beef.png"
+                alt=""
+              />
+              <div
+                class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] top-[120%] left-0 right-0 bottom-0 bg-[rgba(240,240,240,0.7)] text-center flex justify-center items-center"
+              >
+                <div class="contentCard">
+                  <h3 class="text-[40px]">sushi</h3>
+                  <p class="text-[10px]">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Atque, commodi?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>  -->
+        </div>
+        <!-- ///////////////////////////// end details simi category///////////////////////////////// -->
+        <!-- ///////////////////////////// start details  category///////////////////////////////// -->
+        <div
+          id="detalscategory"
+          class="detals w-[80%] pt-10 grid-cols-2 m-auto flex justify-center items-start hidden"
+        >
+          <!--     <div class="partition1 w-[30%] rounded-md ">
+           <img
+             src="../src/images/g046bb1663960946.jpg"
+             class="w-[100%]"
+             alt=""
+           />
+           <h4 class="text-white pt-3 text-[50px]">sushi</h4>
+         </div>
+         <div class="partition1 text-white w-[70%] mb-5 p-4">
+           <h3 class="text-[70px]">Instructions</h3>
+           <p class=" mb-5 pb-4">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+             quidem eum incidunt necessitatibus delectus, aliquid est ratione
+             labore, molestias sunt odio rem doloribus. Officia repellendus,
+             mollitia unde maiores modi molestias cum inventore in ab enim
+             magni veritatis deserunt fugiat atque commodi est ipsum ipsa
+             blanditiis voluptates fugit iste, esse aut? Sunt obcaecati quae
+             velit sed, a laudantium delectus asperiores temporibus quos magni
+             libero quasi vitae unde dolorum? Eos optio accusantium pariatur
+             labore id tenetur inventore necessitatibus modi, iste natus
+             molestias quaerat? Consectetur enim, adipisci deserunt nam dicta
+             maiores laudantium? Aut nemo ratione, doloremque nihil quia
+             cupiditate odit iste molestias, facilis minus accusantium
+             quibusdam sapiente? Explicabo assumenda sunt voluptates officia
+             ipsa voluptate et numquam nam sapiente autem, eius rerum quidem,
+             adipisci nisi, dicta fuga quis impedit. Corporis recusandae unde,
+             quas modi atque quidem iure consequuntur sit quo esse eveniet a
+             quibusdam velit delectus totam id rerum laudantium quam ab
+             veritatis aut! Deserunt porro excepturi obcaecati consequatur
+             nostrum asperiores voluptate maxime cumque, laboriosam ea minus
+             perferendis! Aperiam at rerum explicabo consequuntur maiores
+             officia. Veniam nesciunt provident quidem omnis tempora ab
+             praesentium enim nisi error obcaecati architecto incidunt possimus
+             excepturi odit natus nemo, animi, itaque a veritatis earum maiores
+             recusandae. Sunt quidem porro modi, doloribus culpa beatae
+             adipisci iste unde hic amet dolore excepturi reiciendis officiis
+             eaque. Illum, explicabo quos. Aliquam non doloremque iusto illum
+             ad debitis consequuntur perferendis quidem! Corrupti iusto
+             asperiores rem ex, adipisci error id ut repellat nemo saepe eius
+             nostrum, consectetur perspiciatis suscipit voluptates architecto
+             vero quia ad ullam amet, iure praesentium! Sequi deserunt officia
+             rem qui aspernatur alias ad ipsam harum, assumenda incidunt
+             exercitationem quis! Qui accusantium architecto debitis nulla
+             rerum, eligendi illum nihil sit consectetur placeat tenetur
+             inventore, facilis mollitia ratione iste voluptate saepe dolorem
+             id. Ex numquam possimus quisquam sed dolor quibusdam maxime in
+             magni necessitatibus?
+           </p>
+
+           <div class="cat 
+           ">
+             <h5 class="text-[30px] tracking-[2px]">
+               Area:<span>Japanese</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">
+               Category :<span>Seafood</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">Recipes :<span></span></h5>
+             <br />
+             <div class="recibes p-3 flex-wrap justify-evenly pt-2">
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <br />
+               <br />
+               <br />
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <br />
+               <h6 class="text-[30px] pt-1">tags:</h6>
+               <div class="bt flex pt-2">
+                   <a href="" class="bg-red-600 rounded-xl p-5 m-2"> source</a>
+                   <a href="" class="bg-green-500 rounded-xl p-5 m-2"> youtube</a>
+               </div>
+             </div>
+           </div>
+         </div>  -->
+        </div>
+      </section>
+      <!-- /////////end category///////////////////// -->
+
+      <!-- /////////start area///////////////////// -->
+
+      <section>
+        <div
+          id="area"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--    <div class="coverCard w-[25%] p-3 rounded-md container  text-center">
+            <div
+              class="layerCard text-white text-[120px] relative flex justify-center items-center overflow-hidden"
+            >
+            <i class="fa-solid fa-house-laptop  "></i>            </div>
+            <h3 class="text-white text-[60px] ">amercan</h3>
+          </div> -->
+        </div>
+
+        <!-- ////////////////start simi area/////////////////////// -->
+        <div
+          id="simidetailsarea"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--  <div class="coverCard w-[25%] p-3 rounded-md container">
+               <div class="layerCard relative group/parent overflow-hidden">
+                 <img
+                   class="imgCard w-full relative rounded-md"
+                   src="./images/beef.png"
+                   alt=""
+                 />
+                 <div
+                   class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] top-[120%] left-0 right-0 bottom-0 bg-[rgba(240,240,240,0.7)] text-center flex justify-center items-center"
+                 >
+                   <div class="contentCard">
+                     <h3 class="text-[40px]">sushi</h3>
+                     <p class="text-[10px]">
+                       Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                       Atque, commodi?
+                     </p>
+                   </div>
+                 </div>
+               </div>
+             </div>  -->
+        </div>
+        <!-- ////////////////end simi area/////////////////////// -->
+        <!-- ////////////////start detal area/////////////////////// -->
+        <div
+          id="detalsarea"
+          class="area w-[80%] pt-10 grid-cols-2 m-auto flex justify-center items-start hidden"
+        >
+          <!--     <div class="partition1 w-[30%] rounded-md ">
+           <img
+             src="../src/images/g046bb1663960946.jpg"
+             class="w-[100%]"
+             alt=""
+           />
+           <h4 class="text-white pt-3 text-[50px]">sushi</h4>
+         </div>
+         <div class="partition1 text-white w-[70%] mb-5 p-4">
+           <h3 class="text-[70px]">Instructions</h3>
+           <p class=" mb-5 pb-4">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+             quidem eum incidunt necessitatibus delectus, aliquid est ratione
+             labore, molestias sunt odio rem doloribus. Officia repellendus,
+             mollitia unde maiores modi molestias cum inventore in ab enim
+             magni veritatis deserunt fugiat atque commodi est ipsum ipsa
+             blanditiis voluptates fugit iste, esse aut? Sunt obcaecati quae
+             velit sed, a laudantium delectus asperiores temporibus quos magni
+             libero quasi vitae unde dolorum? Eos optio accusantium pariatur
+             labore id tenetur inventore necessitatibus modi, iste natus
+             molestias quaerat? Consectetur enim, adipisci deserunt nam dicta
+             maiores laudantium? Aut nemo ratione, doloremque nihil quia
+             cupiditate odit iste molestias, facilis minus accusantium
+             quibusdam sapiente? Explicabo assumenda sunt voluptates officia
+             ipsa voluptate et numquam nam sapiente autem, eius rerum quidem,
+             adipisci nisi, dicta fuga quis impedit. Corporis recusandae unde,
+             quas modi atque quidem iure consequuntur sit quo esse eveniet a
+             quibusdam velit delectus totam id rerum laudantium quam ab
+             veritatis aut! Deserunt porro excepturi obcaecati consequatur
+             nostrum asperiores voluptate maxime cumque, laboriosam ea minus
+             perferendis! Aperiam at rerum explicabo consequuntur maiores
+             officia. Veniam nesciunt provident quidem omnis tempora ab
+             praesentium enim nisi error obcaecati architecto incidunt possimus
+             excepturi odit natus nemo, animi, itaque a veritatis earum maiores
+             recusandae. Sunt quidem porro modi, doloribus culpa beatae
+             adipisci iste unde hic amet dolore excepturi reiciendis officiis
+             eaque. Illum, explicabo quos. Aliquam non doloremque iusto illum
+             ad debitis consequuntur perferendis quidem! Corrupti iusto
+             asperiores rem ex, adipisci error id ut repellat nemo saepe eius
+             nostrum, consectetur perspiciatis suscipit voluptates architecto
+             vero quia ad ullam amet, iure praesentium! Sequi deserunt officia
+             rem qui aspernatur alias ad ipsam harum, assumenda incidunt
+             exercitationem quis! Qui accusantium architecto debitis nulla
+             rerum, eligendi illum nihil sit consectetur placeat tenetur
+             inventore, facilis mollitia ratione iste voluptate saepe dolorem
+             id. Ex numquam possimus quisquam sed dolor quibusdam maxime in
+             magni necessitatibus?
+           </p>
+
+           <div class="cat 
+           ">
+             <h5 class="text-[30px] tracking-[2px]">
+               Area:<span>Japanese</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">
+               Category :<span>Seafood</span>
+             </h5>
+             <h5 class="text-[30px] tracking-[2px]">Recipes :<span></span></h5>
+             <br />
+             <div class="recibes p-3 flex-wrap justify-evenly pt-2">
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+               <br />
+               <br />
+               <br />
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <span class="bg-slate-400 p-3 rounded-xl m-2">
+                 300ml Sushi Rice
+               </span>
+
+               <br />
+               <h6 class="text-[30px] pt-1">tags:</h6>
+               <div class="bt flex pt-2">
+                   <a href="" class="bg-red-600 rounded-xl p-5 m-2"> source</a>
+                   <a href="" class="bg-green-500 rounded-xl p-5 m-2"> youtube</a>
+               </div>
+             </div>
+           </div>
+         </div>  -->
+        </div>
+      </section>
+      <!-- /////////end area///////////////////// -->
+
+      <!-- /////////start Ingredients///////////////////// -->
+      <section>
+        <div
+          id="Ingredients"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--   <div class="coverCard w-[25%] p-3 rounded-md container">
+            <div class="contentCard text-white p-6 text-center text-[80px]">
+              <i class="fa-solid fa-drumstick-bite"></i>
+              <h3 class="text-[50px]">sushi</h3>
+              <p class="text-[12px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                ipsum illo eaque error, sequi itaque doloribus sapiente ipsa
+                velit dolorum at provident ullam voluptatibus tempore earum
+                impedit rem totam optio.
+              </p>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- ////////////////start simi Ingredients/////////////////////// -->
+        <div
+          id="simidetailsIngredients"
+          class="grid-cols-4 pt-10 w-[80%] m-auto flex flex-wrap hidden"
+        >
+          <!--  <div class="coverCard w-[25%] p-3 rounded-md container">
+           <div class="layerCard relative group/parent overflow-hidden">
+             <img
+               class="imgCard w-full relative rounded-md"
+               src="./images/beef.png"
+               alt=""
+             />
+             <div
+               class="layer absolute transition-all duration-[.5S] group-hover/parent:top-[0] top-[120%] left-0 right-0 bottom-0 bg-[rgba(240,240,240,0.7)] text-center flex justify-center items-center"
+             >
+               <div class="contentCard">
+                 <h3 class="text-[40px]">sushi</h3>
+                 <p class="text-[10px]">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                   Atque, commodi?
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>  -->
+        </div>
+        <!-- ////////////////end simi Ingredients/////////////////////// -->
+        <!-- ////////////////start detal Ingredients/////////////////////// -->
+        <div
+          id="detalsIngredients"
+          class="Ingredients w-[80%] pt-10 grid-cols-2 m-auto flex justify-center items-start hidden"
+        >
+          <!--     <div class="partition1 w-[30%] rounded-md ">
+       <img
+         src="../src/images/g046bb1663960946.jpg"
+         class="w-[100%]"
+         alt=""
+       />
+       <h4 class="text-white pt-3 text-[50px]">sushi</h4>
+     </div>
+     <div class="partition1 text-white w-[70%] mb-5 p-4">
+       <h3 class="text-[70px]">Instructions</h3>
+       <p class=" mb-5 pb-4">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+         quidem eum incidunt necessitatibus delectus, aliquid est ratione
+         labore, molestias sunt odio rem doloribus. Officia repellendus,
+         mollitia unde maiores modi molestias cum inventore in ab enim
+         magni veritatis deserunt fugiat atque commodi est ipsum ipsa
+         blanditiis voluptates fugit iste, esse aut? Sunt obcaecati quae
+         velit sed, a laudantium delectus asperiores temporibus quos magni
+         libero quasi vitae unde dolorum? Eos optio accusantium pariatur
+         labore id tenetur inventore necessitatibus modi, iste natus
+         molestias quaerat? Consectetur enim, adipisci deserunt nam dicta
+         maiores laudantium? Aut nemo ratione, doloremque nihil quia
+         cupiditate odit iste molestias, facilis minus accusantium
+         quibusdam sapiente? Explicabo assumenda sunt voluptates officia
+         ipsa voluptate et numquam nam sapiente autem, eius rerum quidem,
+         adipisci nisi, dicta fuga quis impedit. Corporis recusandae unde,
+         quas modi atque quidem iure consequuntur sit quo esse eveniet a
+         quibusdam velit delectus totam id rerum laudantium quam ab
+         veritatis aut! Deserunt porro excepturi obcaecati consequatur
+         nostrum asperiores voluptate maxime cumque, laboriosam ea minus
+         perferendis! Aperiam at rerum explicabo consequuntur maiores
+         officia. Veniam nesciunt provident quidem omnis tempora ab
+         praesentium enim nisi error obcaecati architecto incidunt possimus
+         excepturi odit natus nemo, animi, itaque a veritatis earum maiores
+         recusandae. Sunt quidem porro modi, doloribus culpa beatae
+         adipisci iste unde hic amet dolore excepturi reiciendis officiis
+         eaque. Illum, explicabo quos. Aliquam non doloremque iusto illum
+         ad debitis consequuntur perferendis quidem! Corrupti iusto
+         asperiores rem ex, adipisci error id ut repellat nemo saepe eius
+         nostrum, consectetur perspiciatis suscipit voluptates architecto
+         vero quia ad ullam amet, iure praesentium! Sequi deserunt officia
+         rem qui aspernatur alias ad ipsam harum, assumenda incidunt
+         exercitationem quis! Qui accusantium architecto debitis nulla
+         rerum, eligendi illum nihil sit consectetur placeat tenetur
+         inventore, facilis mollitia ratione iste voluptate saepe dolorem
+         id. Ex numquam possimus quisquam sed dolor quibusdam maxime in
+         magni necessitatibus?
+       </p>
+
+       <div class="cat 
+       ">
+         <h5 class="text-[30px] tracking-[2px]">
+           Area:<span>Japanese</span>
+         </h5>
+         <h5 class="text-[30px] tracking-[2px]">
+           Category :<span>Seafood</span>
+         </h5>
+         <h5 class="text-[30px] tracking-[2px]">Recipes :<span></span></h5>
+         <br />
+         <div class="recibes p-3 flex-wrap justify-evenly pt-2">
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+           <br />
+           <br />
+           <br />
+
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+
+           <span class="bg-slate-400 p-3 rounded-xl m-2">
+             300ml Sushi Rice
+           </span>
+
+           <br />
+           <h6 class="text-[30px] pt-1">tags:</h6>
+           <div class="bt flex pt-2">
+               <a href="" class="bg-red-600 rounded-xl p-5 m-2"> source</a>
+               <a href="" class="bg-green-500 rounded-xl p-5 m-2"> youtube</a>
+           </div>
+         </div>
+       </div>
+     </div>  -->
+        </div>
+      </section>
+      <!-- /////////end Ingredients///////////////////// -->
+
+      <!-- /////////start contact us///////////////////// -->
+
+      <section id="conactUs" class="hidden">
+        <div class=" m-auto p-5 bg-yellow-300 text-center"><p id="alert" class="text-white hidden "> your right </p></div>
+
+        <div class="h-[100vh] flex items-center">
+          <div class="conactUs grid-cols-2 pt-10 w-[60%] m-auto flex flex-wrap">
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="text"
+                class="peer p-3 text-black block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputName"
+                placeholder="Enter yourName "
+                oninput="inputName()"
+              />
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter name min 4 char to 20 char</p>
+
+            </div>
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="email"
+                class="peer p-3  block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputEmail"
+                oninput="inputEmail()"
+                placeholder="Enter your email "
+              />
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter your email such amir.aaaa@gmail.com</p>
+
+            </div>
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="number"
+                oninput="inputnumber()"
+
+                class="peer p-3 text-black  block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputPhone"
+                placeholder="Enter your phone "
+              />
+
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter your number such 01100000000</p>
+            </div>
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="number"
+                oninput="inputage()"
+                class="peer p-3 text-black block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputAge"
+                
+                placeholder="Enter your Age "
+              />
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter your age max = 80</p>
+
+            </div>
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="password"
+                class="peer p-3 text-black block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputpassword"
+                oninput="inputpass()"
+
+                placeholder="Enter your password "
+              />
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter pass min 4 char to 20 char</p>
+
+            </div>
+            <div class="coverserach w-[50%] p-3 rounded-md container">
+              <input
+                type="password"
+                class="peer p-3 text-black block min-h-[auto] w-full rounded border-2 bg-white leading-[1.6] border-white placeholder:opacity-100"
+                id="inputrepassword"
+                oninput="inputrepass()"
+
+                placeholder="Enter Repassword"
+              />
+              <p class="p-2 mt-2 text-black rounded-md bg-yellow-500 "> enter pass min 4 char to 20 char</p>
+
+            </div>
+
+            <div  
+             class="btnContect flex justify-center m-auto pt-4">
+              <button
+              id="btncontentus1"
+
+                class="bg-black    border-2 border-red-500 p-2 rounded-lg    text-red-500 text-[25px]   "
+              >
+                submit
+              </button>
+              <button
+              id="btncontentus2"
+
+                class="bg-black    border-2 border-green-500 p-2 rounded-lg    text-black text-[25px]   hidden "
+              >
+                submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /////////end contact us///////////////////// -->
+    </main>
+
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
